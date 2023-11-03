@@ -22,5 +22,7 @@ public interface Sorter {
    *      order.compare(vals[i-1], vals[i]) <= 0
    */
   public <T> void sort(T[] values, Comparator<? super T> order);
+
+//public void sort(int[] original, Comparator<? super T> order);
 } // interface Sorter
 

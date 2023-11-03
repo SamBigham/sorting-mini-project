@@ -27,10 +27,10 @@ public class BighamSamSort implements Sorter {
   // | Methods |
   // +---------+
 
-  // public <T> void stupidsort(T[] values, Comparator<? super T> order){
-  //   values[1] = null;
-  // }
-
+ 
+/*
+ * it's bogo sort! My favorite sorting algorithm
+ */
   @Override
   public <T> void sort(T[] values, Comparator<? super T> order) {
      if(values.length == 0){
@@ -42,16 +42,22 @@ public class BighamSamSort implements Sorter {
         return;
     }
     
-    int correct = checkTrue(values, order);
+    int correct = checkTrue(values, order); //checks whether the array is correct. if not randomizes it
     while(correct != -1){
         
-        arr = Shuffle(values, correct);
+        arr = Shuffle(values, correct); // randomizes array
         correct = checkTrue(values, order);
     }
     values = arr;
   }
 
-
+/*
+ * input: val -> an array of T values
+ * input: numcorrect: the number of currently correct values there are
+ * output: T[] -> a shuffled array
+ * 
+ * randomizes the array starting from the last currently correct value
+ */
   public <T> T[] Shuffle(T[] val, int numCorrect){
     Random rand = new Random();
     for(int i = numCorrect; i < val.length; i++){
@@ -63,6 +69,14 @@ public class BighamSamSort implements Sorter {
     return val;
   }
 
+  /*
+   * checks whether the array is sorted or not
+   * input: val -> array of values
+   * input: order -> a comparator
+   * 
+   * output: int -> either a positive value depending on how many currently correct values there are,
+   *  or a -1 to indicate it's not been sorted yet.
+   */
   public <T> int checkTrue(T[] val, Comparator<? super T> order ){
     for(int i = 0; i<val.length -1; i++){
         if(order.compare(val[i], val[i +1]) > 0){
