@@ -1,2 +1,4 @@
 # sorting-mini-project
-As the name suggests, it's our mini-project for the sorting lab.
+# Author: Sam Bigham
+
+This is the mini project for sorting arrays. We'll be using sorting algorithms such as merge sort, and quicksort.
